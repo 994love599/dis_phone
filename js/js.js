@@ -1,7 +1,7 @@
 $(function () {
     var ifm= document.getElementById("content_main");
     ifm.height=document.documentElement.clientHeight - 28;
-    vm.initPage();				
+    vm.initPage();	
 })
 var vm = new Vue({
 	el: '#content_main',
@@ -41,7 +41,8 @@ var vm = new Vue({
             deathsNum: [],
             curesNum: []
         },
-        mapData:[]
+        mapData:[],
+        clickProvince:[]
     },
 	methods: {
 		initPage: function() {
@@ -147,8 +148,20 @@ var vm = new Vue({
                         //vm.qushi.deathsNum.push(r.data.history[i].deathsNum);
                         //vm.qushi.curesNum.push(r.data.history[i].curesNum);
                     //}
-                    //alert(JSON.stringify(r.data));
+                    
+                    var appendTr='';
                     for(var i=0;i<r.data.area.length;i++){
+                        var provinceName=r.data.area[i].provinceShortName;
+                        /**
+                         * 生成省份数据
+                        */
+                        appendTr+='<tr id="tr_'+provinceName+'">';
+                        appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;cursor: pointer;" class="add" id="'+provinceName+'">'+r.data.area[i].provinceShortName+'</td>';
+                        appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;">'+r.data.area[i].confirmedCount+'</td>';
+                        appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;">'+r.data.area[i].deadCount+'</td>';
+                        appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;">'+r.data.area[i].curedCount+'</td>';
+                        appendTr+='</tr>';
+                         
                         var md={
                             name: r.data.area[i].provinceShortName,
                             value: r.data.area[i].confirmedCount
@@ -162,6 +175,78 @@ var vm = new Vue({
                             vm.provinceData.curesNum.push(r.data.area[i].curedCount);
                         }
                     }
+
+                    $("#addDataTr").after(appendTr);
+
+                    var click_0=0;
+                    $(".add").click(function(){
+                        
+                        var date = new Date();
+                        var year = date.getFullYear();
+                        var month = date.getMonth() + 1;
+                        var strDate = date.getDate();
+                        if (month >= 1 && month <= 9) {
+                            month = '0' + month;
+                        }
+                        if (strDate >= 0 && strDate <= 9) {
+                            strDate = '0' + strDate;
+                        }
+                        var time = year + '-' + month + '-' + strDate;
+                        var provinceName=$(this).attr("id");
+                        for(var k=0;k<vm.clickProvince.length;k++){
+                            if(vm.clickProvince[k].provinceName==provinceName){
+                                if(vm.clickProvince[k].isOn==1){
+                                    $(".city_"+provinceName).hide();
+                                    this_.clickProvince[k].isOn=0;
+                                    return;
+                                }else{
+                                    $(".city_"+provinceName).show();
+                                    this_.clickProvince[k].isOn=1;
+                                    return;
+                                }
+                            }
+                        }
+                        //if(vm.clickProvince.indexOf(provinceName) > -1){
+                        //    $(".city_"+provinceName).hide();
+                        //    return;
+                        //}
+                        $.ajax({
+                            url: "https://myapi.ihogu.com/public/?s=Whfy.city",
+                            contentType: "application/x-www-form-urlencoded",
+                            data: {
+                                page: 1,//页码
+                                limit: 500,//每页n条
+                                country: "中国",
+                                area: provinceName//省
+                                //city: "达州"//市
+                            },
+                            success: function(Re){
+                                var appendTr_tr='';
+                                //alert(time);
+                                //alert(JSON.stringify(Re.data.items));
+                                for(var j=0;j<Re.data.items.length;j++){
+                                    if(time==Re.data.items[j].create_time){
+                                        appendTr_tr+='<tr class="city_'+provinceName+'">';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+Re.data.items[j].city+'</td>';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">'+Re.data.items[j].confirm+'</td>';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">'+Re.data.items[j].dead+'</td>';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">'+Re.data.items[j].heal+'</td>';
+                                        appendTr_tr+='</tr>';
+                                    }
+                                }
+                                
+                                $("#tr_"+provinceName).after(appendTr_tr);
+                                var param={
+                                    "provinceName": provinceName,
+                                    "isOn": 1
+                                }
+                                vm.clickProvince.push(param);
+                            }
+                        });
+                        
+                    });
+                    //alert(JSON.stringify(r.data.area));
+
                     $("#diagnosedIncr").html('&#8593;'+r.data.diagnosedIncr);
                     $("#suspectIncr").html('&#8593;'+r.data.suspectIncr);
                     $("#deathIncr").html('&#8593;'+r.data.deathIncr);
