@@ -1,4 +1,6 @@
 $(function () {
+    var ifm= document.getElementById("content_main");
+    ifm.height=document.documentElement.clientHeight - 28;
     vm.initPage();				
 })
 var vm = new Vue({
@@ -169,15 +171,15 @@ var vm = new Vue({
                     /**
                      * echart5
                      */
-                    var append='<li class="alltitle" style="color: yellow;font-size: 12px;margin-top: 2px;text-align: left;">截止：'+r.data.date+'</li>';
+                    var append='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">截止：'+r.data.date+'</li>';
                     for(var i=0;i<r.data.list.length;i++){
-                        append+='<li class="alltitle" style="color: red;font-size: 12px;margin-top: 2px;text-align: left;">'+r.data.list[i]+'</li>';
+                        append+='<li class="alltitle" style="color: red;font-size: 25px;margin-top: 2px;text-align: left;">'+r.data.list[i]+'</li>';
                     }
                     append='<ul>'+append+'</ul>';
                     $("#echart5").html(append);
-                    var append1='<li class="alltitle" style="color: white;font-size: 12px;margin-top: 2px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
-                    append1+='<li class="alltitle" style="color: white;font-size: 12px;margin-top: 2px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
-                    append1+='<li class="alltitle" style="color: white;font-size: 12px;margin-top: 2px;text-align: left;">本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
+                    var append1='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
                     append1='<ul>'+append1+'</ul>';
                     $("#echart6").html(append1);
                 }
@@ -189,7 +191,7 @@ var vm = new Vue({
                 backgroundColor:'rgba(128, 128, 128, 0)',
                 //backgroundColor: '#FFFFFF',  
                 title: {  
-                    text: '国内疫情地图',  
+                    //text: '国内疫情地图',  
                     subtext: '', 
                     x:'center',
                     textStyle: {
@@ -210,7 +212,8 @@ var vm = new Vue({
                     y:'center',     //可设定图例在上、下、居中
                     //padding:[50,255,0,0],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
                     textStyle: {
-                        color: 'white'
+                        color: 'white',
+                        fontSize: 25
                     },
                     splitList: [
                         {start:5000},
@@ -229,6 +232,7 @@ var vm = new Vue({
                     mapType: 'china',   
                     roam: false,
                     zoom: 1.2,
+                    
                     label: {  
                         normal: {  
                             show: true  //省份名称  
@@ -265,15 +269,18 @@ var vm = new Vue({
                     top:'0%',
                     data:['确诊','疑似','死亡','治愈'],
                     extStyle: {
-                        color: 'rgba(255,255,255,.5)',
-                        fontSize:'12',
-                    }
+                        color: 'rgba(255,255,255,.5)'
+                    },
+                    textStyle: {
+                        color: 'yellow',
+                        fontSize: 25
+                    },
                 },
                 grid: {
-                    left: '10',
-                    top: '30',
-                    right: '10',
-                    bottom: '0',
+                    left: '80',
+                    top: '80',
+                    right: '30',
+                    bottom: '80',
                     containLabel: true
                 },
                 //X轴
@@ -284,7 +291,7 @@ var vm = new Vue({
                         interval: 0,
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                         rotate: 30
                     },
@@ -313,7 +320,7 @@ var vm = new Vue({
                     axisLabel:  {
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                     },
                     splitLine: {
@@ -333,7 +340,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -370,7 +377,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -407,7 +414,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -458,15 +465,18 @@ var vm = new Vue({
                     top:'0%',
                     data:['确诊','死亡','治愈'],
                     extStyle: {
-                        color: 'rgba(255,255,255,.5)',
-                        fontSize:'12',
+                        color: 'rgba(255,255,255,.5)'
+                    },
+                    textStyle: {
+                        color: 'yellow',
+                        fontSize: 25
                     }
                 },
                 grid: {
-                    left: '10',
-                    top: '30',
-                    right: '10',
-                    bottom: '0',
+                    left: '80',
+                    top: '80',
+                    right: '30',
+                    bottom: '80',
                     containLabel: true
                 },
                 //X轴
@@ -477,7 +487,7 @@ var vm = new Vue({
                         interval: 0,
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                         rotate: 30
                     },
@@ -506,7 +516,7 @@ var vm = new Vue({
                     axisLabel:  {
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                     },
                     splitLine: {
@@ -526,7 +536,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -563,7 +573,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -600,7 +610,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -651,15 +661,18 @@ var vm = new Vue({
                     top:'0%',
                     data:['确诊','死亡','治愈'],
                     extStyle: {
-                        color: 'rgba(255,255,255,.5)',
-                        fontSize:'12',
-                    }
+                        color: 'rgba(255,255,255,.5)'
+                    },
+                    textStyle: {
+                        color: 'yellow',
+                        fontSize: 25
+                    },
                 },
                 grid: {
-                    left: '10',
-                    top: '30',
-                    right: '10',
-                    bottom: '0',
+                    left: '80',
+                    top: '80',
+                    right: '30',
+                    bottom: '80',
                     containLabel: true
                 },
                 //X轴
@@ -670,7 +683,7 @@ var vm = new Vue({
                         interval: 0,
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                         rotate: 30
                     },
@@ -699,7 +712,7 @@ var vm = new Vue({
                     axisLabel:  {
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                     },
                     splitLine: {
@@ -719,7 +732,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -756,7 +769,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -793,7 +806,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -845,15 +858,18 @@ var vm = new Vue({
                     top:'0%',
                     data:['确诊','疑似','死亡','治愈'],
                     extStyle: {
-                        color: 'rgba(255,255,255,.5)',
-                        fontSize:'12',
-                    }
+                        color: 'rgba(255,255,255,.5)'
+                    },
+                    textStyle: {
+                        color: 'yellow',
+                        fontSize: 25
+                    },
                 },
                 grid: {
-                    left: '60',
-                    top: '30',
+                    left: '80',
+                    top: '80',
                     right: '30',
-                    bottom: '0',
+                    bottom: '80',
                     containLabel: true
                 },
                 //X轴
