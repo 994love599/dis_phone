@@ -267,13 +267,12 @@ var vm = new Vue({
                 },
                 legend: {
                     top:'0%',
-                    data:['确诊','疑似','死亡','治愈'],
+                    data:['确诊','死亡','治愈'],
                     extStyle: {
                         color: 'rgba(255,255,255,.5)'
                     },
                     textStyle: {
-                        color: 'yellow',
-                        fontSize: 25
+                        color: 'yellow'
                     },
                 },
                 grid: {
@@ -290,8 +289,7 @@ var vm = new Vue({
                     axisLabel:  {
                         interval: 0,
                         textStyle: {
-                            color: "rgba(255,255,255,.6)",
-                            fontSize:25,
+                            color: "rgba(255,255,255,.6)"
                         },
                         rotate: 30
                     },
@@ -320,7 +318,7 @@ var vm = new Vue({
                     axisLabel:  {
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:25,
+                            fontSize:10,
                         },
                     },
                     splitLine: {
@@ -340,7 +338,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -377,7 +375,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -414,7 +412,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
