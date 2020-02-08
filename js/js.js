@@ -171,15 +171,15 @@ var vm = new Vue({
                     /**
                      * echart5
                      */
-                    var append='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">截止：'+r.data.date+'</li>';
+                    var append='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">截止：'+r.data.date+'</li>';
                     for(var i=0;i<r.data.list.length;i++){
-                        append+='<li class="alltitle" style="color: red;font-size: 25px;margin-top: 2px;text-align: left;">'+r.data.list[i]+'</li>';
+                        append+='<li class="alltitle" style="color: red;font-size: 10px;margin-top: 2px;text-align: left;">'+r.data.list[i]+'</li>';
                     }
                     append='<ul>'+append+'</ul>';
                     $("#echart5").html(append);
-                    var append1='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 25px;margin-top: 2px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
+                    var append1='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
                     append1='<ul>'+append1+'</ul>';
                     $("#echart6").html(append1);
                 }
@@ -272,12 +272,13 @@ var vm = new Vue({
                         color: 'rgba(255,255,255,.5)'
                     },
                     textStyle: {
-                        color: 'yellow'
+                        color: 'yellow',
+                        fontSize: 20
                     },
                 },
                 grid: {
                     left: '0',
-                    top: '80',
+                    top: '60',
                     right: '0',
                     bottom: '0',
                     containLabel: true
@@ -317,8 +318,7 @@ var vm = new Vue({
                     },
                     axisLabel:  {
                         textStyle: {
-                            color: "rgba(255,255,255,.6)",
-                            fontSize:10,
+                            color: "rgba(255,255,255,.6)"
                         },
                     },
                     splitLine: {
@@ -467,14 +467,14 @@ var vm = new Vue({
                     },
                     textStyle: {
                         color: 'yellow',
-                        fontSize: 25
+                        fontSize: 20
                     }
                 },
                 grid: {
-                    left: '80',
-                    top: '80',
-                    right: '30',
-                    bottom: '80',
+                    left: '0',
+                    top: '60',
+                    right: '0',
+                    bottom: '0',
                     containLabel: true
                 },
                 //X轴
@@ -484,8 +484,7 @@ var vm = new Vue({
                     axisLabel:  {
                         interval: 0,
                         textStyle: {
-                            color: "rgba(255,255,255,.6)",
-                            fontSize:25,
+                            color: "rgba(255,255,255,.6)"
                         },
                         rotate: 30
                     },
@@ -513,8 +512,7 @@ var vm = new Vue({
                     },
                     axisLabel:  {
                         textStyle: {
-                            color: "rgba(255,255,255,.6)",
-                            fontSize:25,
+                            color: "rgba(255,255,255,.6)"
                         },
                     },
                     splitLine: {
@@ -534,7 +532,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -571,7 +569,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -608,7 +606,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -663,14 +661,14 @@ var vm = new Vue({
                     },
                     textStyle: {
                         color: 'yellow',
-                        fontSize: 25
+                        fontSize: 20
                     },
                 },
                 grid: {
-                    left: '80',
-                    top: '80',
-                    right: '30',
-                    bottom: '80',
+                    left: '0',
+                    top: '60',
+                    right: '0',
+                    bottom: '0',
                     containLabel: true
                 },
                 //X轴
@@ -680,8 +678,7 @@ var vm = new Vue({
                     axisLabel:  {
                         interval: 0,
                         textStyle: {
-                            color: "rgba(255,255,255,.6)",
-                            fontSize:25,
+                            color: "rgba(255,255,255,.6)"
                         },
                         rotate: 30
                     },
@@ -709,8 +706,7 @@ var vm = new Vue({
                     },
                     axisLabel:  {
                         textStyle: {
-                            color: "rgba(255,255,255,.6)",
-                            fontSize:25,
+                            color: "rgba(255,255,255,.6)"
                         },
                     },
                     splitLine: {
@@ -730,7 +726,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -767,7 +763,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -804,7 +800,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -860,14 +856,14 @@ var vm = new Vue({
                     },
                     textStyle: {
                         color: 'yellow',
-                        fontSize: 25
+                        fontSize: 20
                     },
                 },
                 grid: {
-                    left: '80',
-                    top: '80',
-                    right: '30',
-                    bottom: '80',
+                    left: '0',
+                    top: '60',
+                    right: '0',
+                    bottom: '0',
                     containLabel: true
                 },
                 //X轴
@@ -878,7 +874,6 @@ var vm = new Vue({
                         interval: 0,
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:25,
                         },
                         rotate: 30
                     },
@@ -907,7 +902,6 @@ var vm = new Vue({
                     axisLabel:  {
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:25,
                         },
                     },
                     splitLine: {
@@ -925,8 +919,7 @@ var vm = new Vue({
                     },
                     axisLabel:  {
                         textStyle: {
-                            color: "rgba(255,255,255,.6)",
-                            fontSize:25,
+                            color: "rgba(255,255,255,.6)"
                         },
                     },
                     splitLine: {
@@ -948,7 +941,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -983,7 +976,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'yellow',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -1017,7 +1010,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
@@ -1051,7 +1044,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 5
+                            width: 2
                         }
                     },
                     areaStyle: {
