@@ -230,7 +230,7 @@ var vm = new Vue({
                     name: '确诊人数',  
                     type: 'map',  
                     mapType: 'china',   
-                    roam: false,
+                    roam: true,
                     zoom: 1.2,
                     
                     label: {  
@@ -238,7 +238,7 @@ var vm = new Vue({
                             show: true  //省份名称  
                         },  
                         emphasis: {  
-                            show: false  
+                            show: true  
                         }  
                     },  
                     data:mydata  //数据
