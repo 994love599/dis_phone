@@ -1,4 +1,4 @@
-﻿$(function () {
+$(function () {
     vm.initPage();				
 })
 var vm = new Vue({
@@ -202,19 +202,20 @@ var vm = new Vue({
                 
                 //左侧小导航图标
                 visualMap: {  
-                    show : false,
-                    calculable: true,
+                    show : true,
+                    //calculable: false,
                     calculableColor: 'white',
                     orient: 'vertical',
-                    x:'left',      //可设定图例在左、右、居中
+                    x:'right',      //可设定图例在左、右、居中
                     y:'center',     //可设定图例在上、下、居中
                     //padding:[50,255,0,0],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
                     textStyle: {
                         color: 'white'
                     },
                     splitList: [
-                        {start: 1000},  
-                        {start: 500, end: 1000},
+                        {start:5000},
+                        {start: 1000, end:4999},  
+                        {start: 500, end: 999},
                         {start: 100, end: 499},  
                         {start: 10, end: 99},
                         {start: 0, end: 9},  
@@ -223,11 +224,11 @@ var vm = new Vue({
                 
                 //配置属性
                 series: [{  
-                    name: '数据',  
+                    name: '确诊人数',  
                     type: 'map',  
                     mapType: 'china',   
                     roam: false,
-                    zoom: 1.0,
+                    zoom: 1.2,
                     label: {  
                         normal: {  
                             show: true  //省份名称  
@@ -1067,27 +1068,5 @@ var vm = new Vue({
                 myChart.resize();
             });
         }
-
-
-
-
-        
-	}
+    }
 })
-
-
-		
-		
-		
-
-
-		
-
-
-
-
-
-
-
-
-
