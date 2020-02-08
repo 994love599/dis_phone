@@ -277,10 +277,10 @@ var vm = new Vue({
                     },
                 },
                 grid: {
-                    left: '80',
+                    left: '0',
                     top: '80',
-                    right: '30',
-                    bottom: '80',
+                    right: '0',
+                    bottom: '0',
                     containLabel: true
                 },
                 //X轴
