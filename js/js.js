@@ -326,15 +326,33 @@ var vm = new Vue({
                             color: 'rgba(255,255,255,.1)'
                         }
                     }
+                },{
+                    type: 'value',
+                    axisTick: {show: false},
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    },
+                    axisLabel:  {
+                        textStyle: {
+                            color: "rgba(255,255,255,.6)"
+                        },
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    }
                 }],
                // data:['确诊','疑似','死亡','治愈'],
                 series: [{
                     name: '确诊',
                     type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
@@ -364,14 +382,13 @@ var vm = new Vue({
                 },
                 {
                     name: '死亡',
-                    //yAxisIndex: 1,
+                    yAxisIndex: 1,
                     type: 'line',
                     //barWidth:'10%', //柱子宽度
-                    type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: 'red',
@@ -401,14 +418,14 @@ var vm = new Vue({
                 }, 
                 {
                     name: '治愈',
-                    //yAxisIndex: 1,
+                    yAxisIndex: 1,
                     //type: 'line',
                     type: 'line',
                     //barWidth:'10%', //柱子宽度
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#00d887',
@@ -520,15 +537,33 @@ var vm = new Vue({
                             color: 'rgba(255,255,255,.1)'
                         }
                     }
+                },{
+                    type: 'value',
+                    axisTick: {show: false},
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    },
+                    axisLabel:  {
+                        textStyle: {
+                            color: "rgba(255,255,255,.6)"
+                        },
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    }
                 }],
                // data:['确诊','疑似','死亡','治愈'],
                 series: [{
                     name: '确诊',
                     type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
@@ -558,14 +593,13 @@ var vm = new Vue({
                 },
                 {
                     name: '死亡',
-                    //yAxisIndex: 1,
+                    yAxisIndex: 1,
                     type: 'line',
                     //barWidth:'10%', //柱子宽度
-                    type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: 'red',
@@ -595,14 +629,14 @@ var vm = new Vue({
                 }, 
                 {
                     name: '治愈',
-                    //yAxisIndex: 1,
+                    yAxisIndex: 1,
                     //type: 'line',
                     type: 'line',
                     //barWidth:'10%', //柱子宽度
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#00d887',
@@ -714,15 +748,33 @@ var vm = new Vue({
                             color: 'rgba(255,255,255,.1)'
                         }
                     }
+                },{
+                    type: 'value',
+                    axisTick: {show: false},
+                    axisLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    },
+                    axisLabel:  {
+                        textStyle: {
+                            color: "rgba(255,255,255,.6)"
+                        },
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: 'rgba(255,255,255,.1)'
+                        }
+                    }
                 }],
                // data:['确诊','疑似','死亡','治愈'],
                 series: [{
                     name: '确诊',
                     type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
@@ -752,14 +804,13 @@ var vm = new Vue({
                 },
                 {
                     name: '死亡',
-                    //yAxisIndex: 1,
+                    yAxisIndex: 1,
                     type: 'line',
                     //barWidth:'10%', //柱子宽度
-                    type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: 'red',
@@ -789,14 +840,14 @@ var vm = new Vue({
                 }, 
                 {
                     name: '治愈',
-                    //yAxisIndex: 1,
+                    yAxisIndex: 1,
                     //type: 'line',
                     type: 'line',
                     //barWidth:'10%', //柱子宽度
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#00d887',
@@ -931,13 +982,12 @@ var vm = new Vue({
                 ],
                // data:['确诊','疑似','死亡','治愈'],
                 series: [{
-                    yAxisIndex: 1,
                     name: '确诊',
                     type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
@@ -966,13 +1016,12 @@ var vm = new Vue({
                     data: vm.qushi.China.confirmedNum//[3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4,3, 4, 3, 4, 3, 4, 3, 6, 2, 4, 2, 4]
                 }, 
                 {
-                    yAxisIndex: 1,
                     name: '疑似',
                     type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: 'yellow',
@@ -1002,11 +1051,12 @@ var vm = new Vue({
                 },
                 {
                     name: '死亡',
+                    yAxisIndex: 1,
                     type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: 'red',
@@ -1036,11 +1086,12 @@ var vm = new Vue({
                 }, 
                 {
                     name: '治愈',
+                    yAxisIndex: 1,
                     type: 'line',
-                    smooth: true,
-                    symbol: 'circle',
+                    smooth: false,//平滑or曲线
+                    //symbol: 'cricle',
                     symbolSize: 5,
-                    showSymbol: false,
+                    showSymbol: true,
                     lineStyle: {
                         normal: {
                             color: '#00d887',
