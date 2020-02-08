@@ -213,7 +213,7 @@ var vm = new Vue({
                     //padding:[50,255,0,0],   //可设定图例[距上方距离，距右方距离，距下方距离，距左方距离]
                     textStyle: {
                         color: 'white',
-                        fontSize: 25
+                        //fontSize: 25
                     },
                     splitList: [
                         {start:5000},
