@@ -850,9 +850,9 @@ var vm = new Vue({
                     }
                 },
                 grid: {
-                    left: '10',
+                    left: '60',
                     top: '30',
-                    right: '10',
+                    right: '30',
                     bottom: '0',
                     containLabel: true
                 },
@@ -864,7 +864,7 @@ var vm = new Vue({
                         interval: 0,
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                         rotate: 30
                     },
@@ -893,7 +893,7 @@ var vm = new Vue({
                     axisLabel:  {
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                     },
                     splitLine: {
@@ -912,7 +912,7 @@ var vm = new Vue({
                     axisLabel:  {
                         textStyle: {
                             color: "rgba(255,255,255,.6)",
-                            fontSize:12,
+                            fontSize:25,
                         },
                     },
                     splitLine: {
@@ -934,7 +934,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#0184d5',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -969,7 +969,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'yellow',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -1003,7 +1003,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: 'red',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -1037,7 +1037,7 @@ var vm = new Vue({
                     lineStyle: {
                         normal: {
                             color: '#00d887',
-                            width: 2
+                            width: 5
                         }
                     },
                     areaStyle: {
@@ -1067,6 +1067,6 @@ var vm = new Vue({
             window.addEventListener("resize",function(){
                 myChart.resize();
             });
-        }
-    }
+        }        
+	}
 })
