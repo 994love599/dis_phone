@@ -271,8 +271,10 @@ var vm = new Vue({
                      * echart5
                      */
                     var append='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;"><h3 style="color: white;">友情链接</h3></li>';
-                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 20px;text-align: left;"><h4 style="color: green;">1、周边疫情实时查询：<a href="http://t.cn/A6P1xu21" target="_blank">http://t.cn/A6P1xu21</a></h4></li>';
-                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 15px;text-align: left;"><h4 style="color: green;">2、小区疫情实时查询：<a href="http://t.cn/A6P8r8al" target="_blank">http://t.cn/A6P8r8al</a></h4></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 20px;text-align: left;"><h4 style="color: green;">1、周边疫情实时查询：<a href="http://t.cn/A6P1xu21" target="_blank">点我点我点我</a></h4></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 20px;text-align: left;"><h4 style="color: green;">2、小区疫情实时查询：<a href="http://t.cn/A6P8r8al" target="_blank">点我</a></h4></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 20px;text-align: left;"><h4 style="color: green;">3、日常防护手册：<a href="https://expert.baidu.com/med/template/#/pages/speTopic/activity/index?pd=med&openapi=1&from_sf=1&resource_id=5216&vn=med&atn=sarihome&sf_ref=search_fybook&lid=8599021233" target="_blank">点我</a></h4></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 20px;text-align: left;"><h4 style="color: green;">4、最新辟谣：<a href="https://mbd.baidu.com/newspage/data/mdpage?tag=29&id=5807" target="_blank">点我</a></h4></li>';    
                     append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 30px;text-align: left;"><h3 style="color: white;">数据统计</h3></li>';
                     append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 20px;text-align: left;">截止最新一次数据统计时间：'+r.data.date+'</li>';
                     for(var i=0;i<r.data.list.length;i++){
