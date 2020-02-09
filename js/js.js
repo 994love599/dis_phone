@@ -652,6 +652,9 @@ var vm = new Vue({
             //使用制定的配置项和数据显示图表
             myChart.setOption(optionMap);
         },
+        /**
+         * 世界地图
+         */
         initWorldMap: function(){
             var mydata = vm.WordMap;
             var optionMap = {
@@ -717,7 +720,7 @@ var vm = new Vue({
                     type: 'map',  
                     mapType: 'world',   
                     roam: true,
-                    zoom: 2.1,
+                    zoom: 3.5,
                     
                     label: {  
                         normal: {  
@@ -734,7 +737,7 @@ var vm = new Vue({
                     type: 'map',  
                     mapType: 'world',   
                     roam: true,
-                    zoom: 2.1,
+                    zoom: 3.5,
                     
                     label: {  
                         normal: {  
@@ -751,7 +754,7 @@ var vm = new Vue({
                     type: 'map',  
                     mapType: 'world',   
                     roam: true,
-                    zoom: 2.1,
+                    zoom: 3.5,
                     
                     label: {  
                         normal: {  
