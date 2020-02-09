@@ -7,9 +7,9 @@ var vm = new Vue({
 	el: '#content_main',
 	data: {
         total:[],
-        //趋势图TOP10数据
+        //趋势图TOP趋势图数据
         qushi:{
-            //国内Top10身份
+            //国内Top20省份
             China:{
                 date: [],
                 confirmedNum: [],
@@ -17,7 +17,7 @@ var vm = new Vue({
                 deathsNum: [],
                 curesNum: []
             },
-            //世界其他国Top10
+            //世界其他国Top20
             otherCountry:{
                 country: [],
                 confirmedNum: [],
@@ -25,7 +25,7 @@ var vm = new Vue({
                 deathsNum: [],
                 curesNum: []
             },
-            //湖北Top10地区
+            //湖北Top地区数据
             hubei:{
                 city: [],
                 confirmedNum: [],
@@ -34,6 +34,7 @@ var vm = new Vue({
                 curesNum: []
             }
         },
+        //地市数据列表
         provinceData:{
             province: [],
             confirmedNum: [],
@@ -41,12 +42,24 @@ var vm = new Vue({
             deathsNum: [],
             curesNum: []
         },
-        mapData:[],
+        //中国地图数据
+        mapData:{
+            confirm: [],
+            dead: [],
+            cured: []
+        },
+        //地市下钻控制
         clickProvince:[]
     },
 	methods: {
 		initPage: function() {
             var this_=this;
+
+            /**
+             * 1.全国近10天疫情累计趋势
+             *   国外疫情Top
+             *   顶部累计数据 
+             */
             $.ajax({
                 url: "https://myapi.ihogu.com/public/?s=Whfy.count",
                 contentType: "application/x-www-form-urlencoded",
@@ -69,7 +82,7 @@ var vm = new Vue({
                     for(var i=0;i<r.data.items.length;i++){
                         //中国近10天
                         if(r.data.items[i].country=='中国'){
-                            if(count1<9){
+                            if(count1<10){
                                 ++count1;
                                 China.date.push(r.data.items[i].create_time);
                                 China.confirmedNum.push(r.data.items[i].confirm);
@@ -78,8 +91,8 @@ var vm = new Vue({
                                 China.curesNum.push(r.data.items[i].heal);
                             }
                         }else{
-                            //其他国家Top10
-                            if(count2<9){
+                            //其他国家Top20
+                            if(count2<20){
                                 ++count2;
                                 this_.qushi.otherCountry.country.push(r.data.items[i].country);
                                 this_.qushi.otherCountry.confirmedNum.push(r.data.items[i].confirm);
@@ -89,6 +102,7 @@ var vm = new Vue({
                             }
                         }
                     }
+                    //中国近10天
                     for(var i=count1-1;i>=0;i--){
                         this_.qushi.China.date.push(China.date[i]);
                         this_.qushi.China.confirmedNum.push(China.confirmedNum[i]);
@@ -96,10 +110,12 @@ var vm = new Vue({
                         this_.qushi.China.deathsNum.push(China.deathsNum[i]);
                         this_.qushi.China.curesNum.push(China.curesNum[i]);
                     }
+
                     $("#diagnosed").text(r.data.items[0].confirm);
                     $("#suspect").text(r.data.items[0].suspect);
                     $("#death").text(r.data.items[0].dead);
                     $("#cured").text(r.data.items[0].heal); 
+
                     this_.echarts_2();
                     this_.echarts_4();
                 }
@@ -112,7 +128,7 @@ var vm = new Vue({
                 contentType: "application/x-www-form-urlencoded",
                 data: {
                     page: 1,//页码
-                    limit: 10,//每页n条
+                    limit: 50,//每页n条
                     country: "中国",
                     area: "湖北"//省
                     //city: "达州"//市
@@ -120,7 +136,7 @@ var vm = new Vue({
                 success: function(r){
                     var count=0;
                     for(var i=0;i<r.data.items.length;i++){
-                        if(count<9){
+                        if(count<18){
                             ++count;
                             this_.qushi.hubei.city.push(r.data.items[i].city);
                             this_.qushi.hubei.confirmedNum.push(r.data.items[i].confirm);
@@ -141,16 +157,10 @@ var vm = new Vue({
                 success: function(r){
                     //alert(JSON.stringify(r.data));
                     this_.total=r.data;
-                    //for(var i=9;i>=0;i--){
-                        //vm.qushi.date.push(r.data.history[i].date);
-                        //vm.qushi.confirmedNum.push(r.data.history[i].confirmedNum);
-                        //vm.qushi.suspectedNum.push(r.data.history[i].suspectedNum);
-                        //vm.qushi.deathsNum.push(r.data.history[i].deathsNum);
-                        //vm.qushi.curesNum.push(r.data.history[i].curesNum);
-                    //}
-                    
                     var appendTr='';
+                    alert(JSON.stringify(r.data.area));
                     for(var i=0;i<r.data.area.length;i++){
+                        
                         var provinceName=r.data.area[i].provinceShortName;
                         /**
                          * 生成省份数据
@@ -162,12 +172,22 @@ var vm = new Vue({
                         appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;">'+r.data.area[i].curedCount+'</td>';
                         appendTr+='</tr>';
                          
-                        var md={
+                        var confirm_md={
                             name: r.data.area[i].provinceShortName,
                             value: r.data.area[i].confirmedCount
                         }
-                        this_.mapData.push(md);
-                        if(i<10){
+                        var dead_md={
+                            name: r.data.area[i].provinceShortName,
+                            value: r.data.area[i].deadCount
+                        }
+                        var cured_md={
+                            name: r.data.area[i].provinceShortName,
+                            value: r.data.area[i].curedCount
+                        }
+                        this_.mapData.confirm.push(confirm_md);
+                        this_.mapData.dead.push(dead_md);
+                        this_.mapData.cured.push(cured_md);
+                        if(i<20){
                             vm.provinceData.province.push(r.data.area[i].provinceShortName);
                             vm.provinceData.confirmedNum.push(r.data.area[i].confirmedCount);
                             vm.provinceData.suspectedNum.push(r.data.area[i].suspectedCount);
@@ -175,10 +195,9 @@ var vm = new Vue({
                             vm.provinceData.curesNum.push(r.data.area[i].curedCount);
                         }
                     }
-
+                    //列表动态生成
                     $("#addDataTr").after(appendTr);
-
-                    var click_0=0;
+                    //下钻点击事件
                     $(".add").click(function(){
                         
                         var date = new Date();
@@ -206,10 +225,6 @@ var vm = new Vue({
                                 }
                             }
                         }
-                        //if(vm.clickProvince.indexOf(provinceName) > -1){
-                        //    $(".city_"+provinceName).hide();
-                        //    return;
-                        //}
                         $.ajax({
                             url: "https://myapi.ihogu.com/public/?s=Whfy.city",
                             contentType: "application/x-www-form-urlencoded",
@@ -283,14 +298,11 @@ var vm = new Vue({
                         color: 'white'
                     }
                 }, 
-                tooltip : {  
-                    trigger: 'item'  
-                },  
                 
                 //左侧小导航图标
                 visualMap: {  
                     show : true,
-                    //calculable: false,
+                    calculable: false,
                     calculableColor: 'white',
                     orient: 'vertical',
                     x:'right',      //可设定图例在左、右、居中
@@ -308,8 +320,30 @@ var vm = new Vue({
                         {start: 10, end: 99},
                         {start: 0, end: 9},  
                     ]
+                },   
+                tooltip : {  
+                    trigger: 'item',
+                    formatter:function(params){
+                        //定义一个res变量来保存最终返回的字符结果,并且先把地区名称放到里面
+                        var region=params.name;
+                        var res=region+'<br />';
+                        //循环遍历series数据系列
+                        for(var j=0;j<mydata.confirm.length;j++){
+                            if(mydata.confirm[j].name==region){
+                                res+='确诊:'+mydata.confirm[j].value+'<br />';
+                            }
+                            if(mydata.dead[j].name==region){
+                                res+='死亡:'+mydata.dead[j].value+'<br />';
+                            }
+                            if(mydata.cured[j].name==region){
+                                res+='治愈:'+mydata.cured[j].value+'<br />';
+                            }
+                        }
+                        //返回res
+                        //console.log(res);
+                        return res;                
+                    },
                 },  
-                
                 //配置属性
                 series: [{  
                     name: '确诊人数',  
@@ -326,7 +360,39 @@ var vm = new Vue({
                             show: true  
                         }  
                     },  
-                    data:mydata  //数据
+                    data:mydata.confirm  //数据
+                },{  
+                    name: '死亡人数',  
+                    type: 'map',  
+                    mapType: 'china',   
+                    roam: true,
+                    zoom: 1.2,
+                    
+                    label: {  
+                        normal: {  
+                            show: true  //省份名称  
+                        },  
+                        emphasis: {  
+                            show: true  
+                        }  
+                    },  
+                    data:mydata.dead  //数据
+                },{  
+                    name: '治愈人数',  
+                    type: 'map',  
+                    mapType: 'china',   
+                    roam: true,
+                    zoom: 1.2,
+                    
+                    label: {  
+                        normal: {  
+                            show: true  //省份名称  
+                        },  
+                        emphasis: {  
+                            show: true  
+                        }  
+                    },  
+                    data:mydata.cured  //数据
                 }]  
             };  
             //初始化echarts实例
