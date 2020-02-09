@@ -270,18 +270,19 @@ var vm = new Vue({
                     /**
                      * echart5
                      */
-                    var append='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;"><h2 style="color: yellow;">友情链接</h2></li>';
-                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;"><h2 style="color: green;">1、周边疫情实时查询：<a href="http://t.cn/A6P1xu21" target="_blank">http://t.cn/A6P1xu21</a></h2></li>';
-                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;"><h2 style="color: green;">2、小区疫情实时查询：<a href="http://t.cn/A6P8r8al" target="_blank">http://t.cn/A6P8r8al</a></h2></li>';
-                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">截止：'+r.data.date+'</li>';
+                    var append='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;"><h3 style="color: white;">友情链接</h3></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;"><h4 style="color: green;">1、周边疫情实时查询：<a href="http://t.cn/A6P1xu21" target="_blank">http://t.cn/A6P1xu21</a></h4></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;"><h4 style="color: green;">2、小区疫情实时查询：<a href="http://t.cn/A6P8r8al" target="_blank">http://t.cn/A6P8r8al</a></h4></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 30px;text-align: left;"><h3 style="color: white;">数据统计</h3></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;">截止最新一次数据统计时间：'+r.data.date+'</li>';
                     for(var i=0;i<r.data.list.length;i++){
-                        append+='<li class="alltitle" style="color: red;font-size: 15px;margin-top: 5px;text-align: left;">'+r.data.list[i]+'</li>';
+                        append+='<li class="alltitle" style="color: red;font-size: 15px;margin-top: 10px;text-align: left;">'+r.data.list[i]+'</li>';
                     }
                     append='<ul>'+append+'</ul>';
                     $("#echart5").html(append);
-                    var append1='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
+                    var append1='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 10px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
                     append1='<ul>'+append1+'</ul>';
                     $("#echart6").html(append1);
                 }
