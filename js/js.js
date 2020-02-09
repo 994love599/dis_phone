@@ -158,7 +158,6 @@ var vm = new Vue({
                     //alert(JSON.stringify(r.data));
                     this_.total=r.data;
                     var appendTr='';
-                    alert(JSON.stringify(r.data.area));
                     for(var i=0;i<r.data.area.length;i++){
                         
                         var provinceName=r.data.area[i].provinceShortName;
@@ -271,15 +270,15 @@ var vm = new Vue({
                     /**
                      * echart5
                      */
-                    var append='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">截止：'+r.data.date+'</li>';
+                    var append='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">截止：'+r.data.date+'</li>';
                     for(var i=0;i<r.data.list.length;i++){
-                        append+='<li class="alltitle" style="color: red;font-size: 10px;margin-top: 2px;text-align: left;">'+r.data.list[i]+'</li>';
+                        append+='<li class="alltitle" style="color: red;font-size: 15px;margin-top: 2px;text-align: left;">'+r.data.list[i]+'</li>';
                     }
                     append='<ul>'+append+'</ul>';
                     $("#echart5").html(append);
-                    var append1='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 10px;margin-top: 2px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
+                    var append1='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
                     append1='<ul>'+append1+'</ul>';
                     $("#echart6").html(append1);
                 }
