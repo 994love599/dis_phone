@@ -164,8 +164,8 @@ var vm = new Vue({
                         /**
                          * 生成省份数据
                         */
-                        appendTr+='<tr id="tr_'+provinceName+'">';
-                        appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;cursor: pointer;" class="add" id="'+provinceName+'">'+r.data.area[i].provinceShortName+'</td>';
+                        appendTr+='<tr style="cursor: pointer;" class="add" id="'+provinceName+'">';
+                        appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;cursor: pointer;" class="add" id="_'+provinceName+'">'+r.data.area[i].provinceShortName+'</td>';
                         appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;">'+r.data.area[i].confirmedCount+'</td>';
                         appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;">'+r.data.area[i].deadCount+'</td>';
                         appendTr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 20px;">'+r.data.area[i].curedCount+'</td>';
@@ -241,15 +241,15 @@ var vm = new Vue({
                                 for(var j=0;j<Re.data.items.length;j++){
                                     if(time==Re.data.items[j].create_time){
                                         appendTr_tr+='<tr class="city_'+provinceName+'">';
-                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+Re.data.items[j].city+'</td>';
-                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">'+Re.data.items[j].confirm+'</td>';
-                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">'+Re.data.items[j].dead+'</td>';
-                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: red;font-size: 15px;">'+Re.data.items[j].heal+'</td>';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: yellow;font-size: 15px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+Re.data.items[j].city+'</td>';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 15px;">'+Re.data.items[j].confirm+'</td>';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 15px;">'+Re.data.items[j].dead+'</td>';
+                                        appendTr_tr+='   <td style="width: 25%;float: left;text-align: center;margin-top: 5px;color: white;font-size: 15px;">'+Re.data.items[j].heal+'</td>';
                                         appendTr_tr+='</tr>';
                                     }
                                 }
                                 
-                                $("#tr_"+provinceName).after(appendTr_tr);
+                                $("#"+provinceName).after(appendTr_tr);
                                 var param={
                                     "provinceName": provinceName,
                                     "isOn": 1
@@ -270,15 +270,18 @@ var vm = new Vue({
                     /**
                      * echart5
                      */
-                    var append='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">截止：'+r.data.date+'</li>';
+                    var append='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;"><h2 style="color: yellow;">友情链接</h2></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;"><h2 style="color: green;">1、周边疫情实时查询：<a href="http://t.cn/A6P1xu21" target="_blank">http://t.cn/A6P1xu21</a></h2></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;"><h2 style="color: green;">2、小区疫情实时查询：<a href="http://t.cn/A6P8r8al" target="_blank">http://t.cn/A6P8r8al</a></h2></li>';
+                    append+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">截止：'+r.data.date+'</li>';
                     for(var i=0;i<r.data.list.length;i++){
-                        append+='<li class="alltitle" style="color: red;font-size: 15px;margin-top: 2px;text-align: left;">'+r.data.list[i]+'</li>';
+                        append+='<li class="alltitle" style="color: red;font-size: 15px;margin-top: 5px;text-align: left;">'+r.data.list[i]+'</li>';
                     }
                     append='<ul>'+append+'</ul>';
                     $("#echart5").html(append);
-                    var append1='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
-                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 2px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
+                    var append1='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">1.尽量不外出,待在家里就是为国家做贡献</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">2.勤洗手，戴口罩,爱护自己，也是尊重他人</li>';
+                    append1+='<li class="alltitle" style="color: yellow;font-size: 15px;margin-top: 5px;text-align: left;">注：本系统数据均从网络接口获取,不保证数据绝对的精确性和及时性（本人学习使用，仅供参考）</li>';
                     append1='<ul>'+append1+'</ul>';
                     $("#echart6").html(append1);
                 }
