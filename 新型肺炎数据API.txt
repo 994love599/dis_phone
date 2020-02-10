@@ -1,0 +1,45 @@
+/*新型肺炎数据API*/
+	/**
+	 * API
+	 * */
+	$.ajax({
+	    url: "https://www.tianqiapi.com/api?version=epidemic&appid=23035354&appsecret=8YvlPNrz",
+        contentType: "application/x-www-form-urlencoded",
+	    data: {
+	    },
+	    success: function(r){
+	    	alert(JSON.stringify(r));
+		}
+	});
+	/**
+	 * 世界
+	 * */
+	$.ajax({
+	    url: "https://myapi.ihogu.com/public/?s=Whfy.count",
+        contentType: "application/x-www-form-urlencoded",
+	    data: {
+	    	country: "斯里兰卡",
+	    	page: 1,//页码
+	    	limit: 10//每页n条
+	    },
+	    success: function(r){
+	    	alert(JSON.stringify(r));
+		}
+	});
+	/**
+	 * 中国
+	 * */
+	$.ajax({
+	    url: "https://myapi.ihogu.com/public/?s=Whfy.city",
+        contentType: "application/x-www-form-urlencoded",
+	    data: {
+	    	page: 1,//页码
+	    	limit: 10,//每页n条
+	    	country: "中国"//,
+	    	//area: "四川"//省
+	    	//city: "达州"//市
+	    },
+	    success: function(r){
+	    	alert(JSON.stringify(r));
+		}
+	});
