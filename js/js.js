@@ -577,18 +577,21 @@ var vm = new Vue({
                     formatter:function(params){
                         //定义一个res变量来保存最终返回的字符结果,并且先把地区名称放到里面
                         var region=params.name;
+                        var flag=true;
                         var res=region+'<br />';
                         //循环遍历series数据系列
                         for(var j=0;j<mydata.confirm.length;j++){
                             if(mydata.confirm[j].name==region){
+                                flag=false;
                                 res+='确诊:'+mydata.confirm[j].value+'<br />';
-                            }
-                            if(mydata.dead[j].name==region){
                                 res+='死亡:'+mydata.dead[j].value+'<br />';
-                            }
-                            if(mydata.cured[j].name==region){
                                 res+='治愈:'+mydata.cured[j].value+'<br />';
                             }
+                        }
+                        if(flag){
+                            res+='确诊: 0<br />';
+                            res+='死亡: 0<br />';
+                            res+='治愈: 0<br />';
                         }
                         //返回res
                         //console.log(res);
@@ -683,11 +686,10 @@ var vm = new Vue({
                         //fontSize: 25
                     },
                     splitList: [
-                        {start:5000},
-                        {start: 1000, end:4999},  
-                        {start: 500, end: 999},
-                        {start: 100, end: 499},  
-                        {start: 10, end: 99},
+                        {start:500},
+                        {start: 100, end: 499},
+                        {start: 50, end: 99},  
+                        {start: 10, end: 49},
                         {start: 0, end: 9},  
                     ]
                 },
@@ -697,17 +699,20 @@ var vm = new Vue({
                         //定义一个res变量来保存最终返回的字符结果,并且先把地区名称放到里面
                         var region=params.name;
                         var res=region+'<br />';
+                        var flag=true;
                         //循环遍历series数据系列
                         for(var j=0;j<mydata.confirm.length;j++){
                             if(mydata.confirm[j].name==region){
+                                flag=false;
                                 res+='确诊:'+mydata.confirm[j].value+'<br />';
-                            }
-                            if(mydata.dead[j].name==region){
                                 res+='死亡:'+mydata.dead[j].value+'<br />';
-                            }
-                            if(mydata.cured[j].name==region){
                                 res+='治愈:'+mydata.cured[j].value+'<br />';
                             }
+                        }
+                        if(flag){
+                            res+='确诊: 0<br />';
+                            res+='死亡: 0<br />';
+                            res+='治愈: 0<br />';
                         }
                         //返回res
                         //console.log(res);
@@ -720,11 +725,11 @@ var vm = new Vue({
                     type: 'map',  
                     mapType: 'world',   
                     roam: true,
-                    zoom: 3.5,
+                    zoom: 2.1,
                     
                     label: {  
                         normal: {  
-                            show: true  //省份名称  
+                            show: false  //国家名称  
                         },  
                         emphasis: {  
                             show: true  
@@ -737,7 +742,7 @@ var vm = new Vue({
                     type: 'map',  
                     mapType: 'world',   
                     roam: true,
-                    zoom: 3.5,
+                    zoom: 2.1,
                     
                     label: {  
                         normal: {  
@@ -754,7 +759,7 @@ var vm = new Vue({
                     type: 'map',  
                     mapType: 'world',   
                     roam: true,
-                    zoom: 3.5,
+                    zoom: 2.1,
                     
                     label: {  
                         normal: {  
